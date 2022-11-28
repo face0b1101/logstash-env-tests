@@ -1,0 +1,25 @@
+version: "3.2"
+services:
+
+  # Logshark - https://github.com/ugosan/logshark
+  # Useful tool for debugging api requests bound for Elasticsearch
+  # To run logshark:
+      # docker-compose -f logshark.yml run --rm --name logshark logshark -host 0.0.0.0 -port 9200
+  # To test it is up and running:
+      # curl -v -XPOST -d '{"hello":"test"}' localhost:9200
+  # Can also accessed by containers within the same docker network
+      # curl -v -XPOST -d '{"hello":"test"}' logshark:9200
+  logshark:
+    image: ugosan/logshark
+    container_name: logshark
+    ports:
+      - 9200:9200
+    tty: true
+    stdin_open: true
+    networks:
+      - local-logstash-testing
+
+networks:
+  local-logstash-testing:
+    name: local-logstash-testing
+    external: false
