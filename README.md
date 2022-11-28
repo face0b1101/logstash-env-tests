@@ -41,7 +41,7 @@ This example uses a string containing one or more strings separated by commas, r
     }
     ```
 
-3. Ensure that `.env` is created an populated based on `.env.example`
+3. Ensure that `.env` is created and populated based on `.env.example`
     This example uses `cloud_id` and `cloud_auth` to access an Elasticsearch cluster in [Elastic Cloud](cloud.elastic.co). You need to add your own credentials.
 
 4. Execute `docker run` command
